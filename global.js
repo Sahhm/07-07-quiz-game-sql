@@ -46,3 +46,20 @@ function given_answer() {
     return document.getElementById("answer").value
 
 }
+
+
+// Function is_correct_answer, which takes one argument (called answer_text).
+//
+// This function checks if the given argument matches the text of the correct answer. It should return true or false.
+
+function is_correct_answer(answer_text) {
+    if (answer_text == questionArray[0].rightAnswer) {
+        return true
+    } else {
+        return false
+    }
+}
+
+
+
+
