@@ -36,21 +36,23 @@ idChoices.innerText = questionArray[0].choices.join(", ");
 
 // Part 2
 
-// Function given_answer
-
-// Return text currently typed into the div#answer field
-
-// Test by running function in browser console
-
+/* Function given_answer
+ *
+ * Return text currently typed into the div#answer field
+ *
+ * Test by running function in browser console
+ */
 function given_answer() {
     return document.getElementById("answer").value
 
 }
 
 
-// Function is_correct_answer, which takes one argument (called answer_text).
-//
-// This function checks if the given argument matches the text of the correct answer. It should return true or false.
+/*
+ * Function is_correct_answer, which takes one argument (called answer_text).
+ *
+ * This function checks if the given argument matches the text of the correct answer. It should return true or false.
+ */
 
 function is_correct_answer(answer_text) {
     if (answer_text == questionArray[0].rightAnswer) {
@@ -63,14 +65,13 @@ function is_correct_answer(answer_text) {
 
 
 
-// Write a function called update_question_result,
-//
-// which takes one argument (named correct).
-//
-// When the argument is true, the function sets the content of #question_result to "Success!".
-// Otherwise, the function sets the content of #question_result to "Wrong!".
-
-
+/*  Write a function called update_question_result,
+ *
+ *  which takes one argument (named correct).
+ *
+ *  When the argument is true, the function sets the content of #question_result to "Success!".
+ *  Otherwise, the function sets the content of #question_result to "Wrong!".
+ */
 function update_question_result(correct) {
     if (correct == true) {
         document.getElementById("question_result").innerText = "Success!";
@@ -78,3 +79,4 @@ function update_question_result(correct) {
         document.getElementById("question_result").innerText = "Wrong!";
     }
 }
+
