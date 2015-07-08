@@ -34,3 +34,15 @@ var idChoices = document.getElementById("choices");
 idChoices.innerText = questionArray[0].choices.join(", ");
 
 
+// Part 2
+
+// Function given_answer
+
+// Return text currently typed into the div#answer field
+
+// Test by running function in browser console
+
+function given_answer() {
+    return document.getElementById("answer").value
+
+}
