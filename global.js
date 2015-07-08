@@ -80,3 +80,9 @@ function update_question_result(correct) {
     }
 }
 
+function process_answer_submission() {
+    var user_answer = given_answer();
+    update_question_result(is_correct_answer(user_answer));
+}
+
+
