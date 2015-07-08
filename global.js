@@ -54,12 +54,27 @@ function given_answer() {
 
 function is_correct_answer(answer_text) {
     if (answer_text == questionArray[0].rightAnswer) {
-        return true
+        return true;
     } else {
-        return false
+        return false;
     }
 }
 
 
 
 
+// Write a function called update_question_result,
+//
+// which takes one argument (named correct).
+//
+// When the argument is true, the function sets the content of #question_result to "Success!".
+// Otherwise, the function sets the content of #question_result to "Wrong!".
+
+
+function update_question_result(correct) {
+    if (correct == true) {
+        document.getElementById("question_result").innerText = "Success!";
+    } else {
+        document.getElementById("question_result").innerText = "Wrong!";
+    }
+}
