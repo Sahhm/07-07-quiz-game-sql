@@ -2,7 +2,7 @@
  * Created by Samuel Stephen & Patrick Carlton on 7/7/15.
  */
 
-
+var count = 0
 
 var questionArray = [
                 {   question: "What are you?",
@@ -25,15 +25,25 @@ var questionArray = [
                     rightAnswer: "a"
                 }   ];
 
-var idQuestion = document.getElementById("question");
 
-idQuestion.innerText = questionArray[0].question;
+                var idQuestion = document.getElementById("question");
 
-var idChoices = document.getElementById("choices");
+                idQuestion.innerText = questionArray[count].question;
 
-idChoices.innerText = questionArray[0].choices.join(", ");
+                var idChoices = document.getElementById("choices");
+
+                idChoices.innerText = questionArray[count].choices.join(", ");
 
 
+function show_next() {
+                
+  if (count <=2){
+    count = count + 1
+  
+    idQuestion.innerText = questionArray[count].question;
+    idChoices.innerText = questionArray[count].choices.join(", ");
+  }
+}
 // Part 2
 
 /* Function given_answer
