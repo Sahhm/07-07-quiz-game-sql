@@ -2,48 +2,27 @@
  * Created by Sam Morgan on 7/9/15.
  */
 
-var count = 0
+var count = 0;
 
-var questionArray = [
-                {   question: "What are you?",
-                    choices: ["(a) human", "(b) robot", "(c) unicorn", "(d) chicken"],
-                    rightAnswer: "a"
-                },
+var answerArray = [
+  {rightAnswer: "a"},
+  {rightAnswer: "b"},
+  {rightAnswer: "c"},
+  {rightAnswer: "d"}
+];
 
-                {   question: "Where is OCS?",
-                    choices: ["(a) Omaha", "(b) Elmwood", "(c) Nehawka", "(d) Lincoln"],
-                    rightAnswer: "a"
-                },
+var attempts = 0
 
-                {   question: "What's the right answer?",
-                    choices: ["(a) this one", "(b) not this one", "(c) not this one", "(d) not this one"],
-                    rightAnswer: "a"
-                },
+var score = 0
 
-                {   question: "Pick something.",
-                    choices: ["(a) Stop picking a", "(b) I'm bored", "(c) yup", "(d) Chicken-Wang"],
-                    rightAnswer: "a"
-                }   ];
-
-
-                var idQuestion = document.getElementById("question");
-
-                idQuestion.innerText = questionArray[count].question;
-
-                var idChoices = document.getElementById("choices");
-
-                idChoices.innerText = questionArray[count].choices.join(", ");
-
-
-function show_next() {
                 
-  if (count <=2){
-    count = count + 1
-  
-    idQuestion.innerText = questionArray[count].question;
-    idChoices.innerText = questionArray[count].choices.join(", ");
-  }
-}
+
+                
+                
+var idAnswer = document.getElementById("answer");
+
+
+
 // Part 2
 
 /* Function given_answer
@@ -65,7 +44,7 @@ function given_answer() {
  */
 
 function is_correct_answer(answer_text) {
-    if (answer_text == questionArray[0].rightAnswer) {
+    if (answer_text == answerArray[count].rightAnswer) {
         return true;
     } else {
         return false;
@@ -82,17 +61,41 @@ function is_correct_answer(answer_text) {
  *  When the argument is true, the function sets the content of #question_result to "Success!".
  *  Otherwise, the function sets the content of #question_result to "Wrong!".
  */
+
+
 function update_question_result(correct) {
     if (correct == true) {
         document.getElementById("question_result").innerText = "Success!";
+        attempts = attempts +1;
+        score = score +1;
     } else {
         document.getElementById("question_result").innerText = "Wrong!";
+        attempts = attempts + 1;
     }
 }
 
 function process_answer_submission() {
     var user_answer = given_answer();
     update_question_result(is_correct_answer(user_answer));
+    idAnswer.value = "";
 }
 
 
+function show_next() {
+  var user_answer = given_answer();
+  update_question_result(is_correct_answer(user_answer));
+  idAnswer.value = "";
+      
+                
+  if (count <=2){
+    var idQuestion = document.getElementById("q"+count);
+    idQuestion.className = "question hide";
+    count = count + 1;
+    idQuestion = document.getElementById("q"+count);
+    idQuestion.className = "question";
+    idAnswer.value = "";
+  } else if (count ==3){
+  var totalScore = (score/attempts)*100;
+  alert("You're total score was " + totalScore + "%. You answered " + score + " questions correct in " + attempts + " tries.");
+  }
+}

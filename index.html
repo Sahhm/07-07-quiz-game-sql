@@ -3,24 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Quiz Game v2</title>
+    <link rel="stylesheet" href="./global.css" property>
 </head>
 <body>
     <div id="quiz">
-        <div id="question">
-
+        <div id="questions">
+          <div class="question" id="q0">
+            "What are you?" <br>
+                    choices: "(a) human", "(b) android", "(c) cyborg", "(d) ghost"<br>
+                  
+          </div>
+          <div class="question hide" id="q1">
+          "Where is OCS?"<br>
+              choices: "(a) North Omaha", "(b) South Omaha", "(c) Bellevue", "(d) Lincoln"<br>
+              
+          </div>
+          <div class="question hide" id="q2">
+          "What's the right answer?"<br>
+              choices: "(a) not this one", "(b) not this one", "(c) this one", "(d) not this one"<br>
+             
+          </div>
+          <div class="question hide" id="q3">
+            Pick something."<br>
+              choices: "(a) Stop picking a", "(b) I'm bored", "(c) yup", "(d) Chicken-Wang"<br>
+             
+          </div>
         </div>
         <div id="choices">
 
         </div>
         <input type="text" id="answer">
-        <button  onclick="process_answer_submission()" id="submitter">Click me</button>
+        <button  onclick="show_next()" id="submitter">Submit Answer</button>
     </div>
     <div id="question_result">
 
     </div>
-    <button onclick="show_next()" id="next">
-      Next Question
-    </button>
+  
     <div id="total_result">
 
     </div>
